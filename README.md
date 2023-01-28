@@ -18,3 +18,11 @@ It is a learning &amp; practice repository to understand and work on spring secu
 
 - After adding **web** and **security** modules to the [pom.xml](/pom.xml) it will automatically generate a random UUID as the password.
   - Spring follows `convention over configuration` design philosophy. So, it will generate the password by looking into the structure of the code, in this case `security` module in the pom.xml.
+- After having our own InMemoryUserDetailsManager, we can get rid of following log statement
+```
+WARN 45386 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 49266a79-c52b-4fec-b3e7-32ff11f6837b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+```
