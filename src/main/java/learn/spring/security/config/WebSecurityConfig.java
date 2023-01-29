@@ -1,12 +1,10 @@
 package learn.spring.security.config;
 
+import learn.spring.security.service.SecurityUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
  * @author Krishna Chaitanya
@@ -14,6 +12,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 public class WebSecurityConfig {
 
+    /**
+     * We are going to use {@link SecurityUserDetailsService}
+     * @return
+     */
+    //@formatter:off
+    /**
     @Bean
     UserDetailsService userDetailsService() {
         var userDetailsManager = new InMemoryUserDetailsManager();
@@ -26,7 +30,8 @@ public class WebSecurityConfig {
         userDetailsManager.createUser(userDetails);
         return userDetailsManager;
     }
-
+    */
+    //@formatter:on
     @Bean
     PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();

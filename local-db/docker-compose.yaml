@@ -1,0 +1,15 @@
+version: '3'
+services:
+  spring_security:
+    platform: linux/x86_64
+    container_name: learn_spring_security
+    image: mysql:8.0.23
+    environment:
+      MYSQL_DATABASE: spring_security
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "${HOST_PORT:-3311}:3306"
+#    volumes:
+#      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql

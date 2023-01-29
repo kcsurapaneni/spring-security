@@ -14,6 +14,7 @@ It is a learning &amp; practice repository to understand and work on spring secu
 - Major difference with hashing is it is unidirectional. For the given output we never identify the input. That is the reason, we should store all the passwords as hashed ones instead of plain text. So, even if the data breach happened they were not able to fetch the actual password.
 - MD5 is on of the old technique to perform this, but it is not secure anymore as we can get the input based on output.
 - With MD5 we have another concern `Rainbow Table Attacks`.
+
 ## c1-basic-auth
 
 - After adding **web** and **security** modules to the [pom.xml](/pom.xml) it will automatically generate a random UUID as the password.
@@ -25,4 +26,16 @@ WARN 45386 --- [           main] .s.s.UserDetailsServiceAutoConfiguration :
 Using generated security password: 49266a79-c52b-4fec-b3e7-32ff11f6837b
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
+```
+
+## c2-managing-users
+
+- HTTP requests initially comes to Filter Chain, after that it propagates to Dispatcher Servlet and from there to Controller.
+- We have `Authentication Filter` -> `Authentication Manager` -> `Authentication Provider` -> `UserDetailsService` && `PasswordEncoder`.
+```
+org.springframework.security.web.authentication.www.BasicAuthenticationFilter#doFilterInternal
+org.springframework.security.authentication.ProviderManager#authenticate
+org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider#authenticate
+org.springframework.security.authentication.dao.DaoAuthenticationProvider#createSuccessAuthentication
+org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider#createSuccessAuthentication
 ```
