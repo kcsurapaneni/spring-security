@@ -1,1 +1,4 @@
-
+custom:
+  secure:
+    key: secret
+    x-api-key: api-secret

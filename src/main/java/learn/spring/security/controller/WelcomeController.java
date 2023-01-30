@@ -1,0 +1,17 @@
+package learn.spring.security.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author Krishna Chaitanya
+ */
+@RestController
+public class WelcomeController {
+
+    @GetMapping("/hello")
+    String welcome() {
+        return "Welcome!";
+    }
+
+}
